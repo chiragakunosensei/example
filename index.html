@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Country", "Death Rate", { role: "style" } ],
+       
+        ["Italy", 11.9, "008c45"],
+        ["Spain", 9.02, "F1BF00"],
+          ["France", 7.08, "color: #ef4135"],
+        ["China", 4.06, "color: #DE2910"],
+           ["United States", 2.23, "06oe45"],
+          ["Germany", 1.08, "color: #000000"]
+          
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Countries with Most Cases Ranked by Death Rate",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="barchart_values" style="width: 900px; height: 300px;"></div>
+      
+    
+</html>
+
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html> 
+
+
+
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
